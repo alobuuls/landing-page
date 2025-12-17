@@ -1,0 +1,198 @@
+.header {
+  background-color: var(--color-white);
+  height: 5vh;
+  line-height: 5vh;
+  padding-inline-end: 20vw;
+  text-align: end;
+
+  & :is(.ctn-info-mail, .ctn-social-media) {
+    display: inline-block;
+  }
+}
+
+.ctn-info-mail {
+  margin-inline-end: 2rem;
+
+  & > a[href^="mailto"] {
+    color: var(--color-gray);
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: var(--color-black);
+    }
+
+    & > i {
+      margin-inline-end: 0.5rem;
+    }
+  }
+}
+
+.ctn-social-media > a  {
+  -webkit-text-fill-color: var(--color-green);
+  -webkit-text-stroke: 0 var(--color-green);
+  transition: -webkit-text-fill-color 0.3s ease-in-out,
+              -webkit-text-stroke-width 0.3s ease-in-out;
+
+  &:hover {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+  }
+
+  &:not(:last-of-type) {
+    margin-inline-end: 0.5rem;
+  }
+}
+
+.menu {
+  align-items: center;
+  background-color: var(--color-blue);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ctn-logo {
+  width: 5.5rem;
+
+  & img {
+    scale: 3;
+    max-width: 100%;
+    transform: translateX(2.5rem);
+  }
+}
+
+.menu-items {
+  align-items: center;
+  column-gap: 3rem;
+  display: flex;
+
+  & > li  {
+    display: inline-block;
+  }
+
+  & a {
+    color: white;
+    text-shadow: 0 0 1px black;
+    position: relative;
+    text-transform: uppercase;
+
+    &:before {
+      background-color: var(--color-green);
+      bottom: 0;
+      content: '';
+      height: 0.75rem;
+      left: 50%;
+      pointer-events: none;
+      position: absolute;
+      transform: translate(-50%, 150%);
+      transition: width 0.4s ease;
+      visibility: hidden;
+      width: 0;
+    }
+
+    &:hover:before,
+    &.active:before {
+      visibility: visible;
+      width: 100%;
+    }
+  }
+}
+
+.menu-icon {
+  align-self: end;
+  color: white;
+  text-shadow: 0 0 3px black;
+  cursor: pointer;
+  display: none;
+  font-size: 1.75rem;
+  margin-inline-end: 1rem;
+
+  & .close-icon {
+    display: none;
+  }
+
+  & input[type="checkbox"] {
+    display: none;
+  }
+
+  & input[type="checkbox"]:checked + .hamburguer-icon {
+    display: none;
+
+    & + .close-icon {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 1450px) {
+  .menu-items {
+    column-gap: 1rem;
+  }
+
+  .ctn-logo img {
+    scale: 2;
+  }
+}
+
+@media (max-width: 990px) {
+  .ctn-logo img {
+    transform: translateX(-.25rem);
+    scale: 1.5;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    text-align: center;
+    padding-inline-end: 0;
+  }
+
+  .ctn-logo img {
+    display: none;
+  }
+  
+  :is(.menu, .menu-items) {
+    flex-direction: column;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+  
+  .menu-items {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease;
+  }
+  
+  .menu-icon:has(input[type="checkbox"]:checked) + .menu-items {
+    height: 9.25rem;
+  }
+
+  .menu {
+    background-color: color-mix(in srgb, var(--color-blue) 60%, transparent 40%);
+    backdrop-filter: blur(10px);
+    padding-block: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .menu-items > li {
+    width: 100%;
+    text-align: center;
+
+    &:not(:last-child) {
+      margin-bottom: 0.25rem;
+    }
+  }
+  
+  .menu-items > li > a:before {
+    background-color: transparent;
+  }
+
+  .menu-items > li:hover {
+    background-color: #92c21e90;
+  }
+}

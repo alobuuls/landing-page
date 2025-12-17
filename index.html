@@ -11,13 +11,63 @@
       </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/initialize.css">
+    <link rel="stylesheet" href="css/header.css">
   </head>
 
   <body>
+    
+    <!-- header -->
+    <section>
+      <header id="header" class="header" role="social-media">
+        <div class="ctn-header-info">
+          <div class="ctn-info-mail">
+            <a aria-label="Enviar Email" href="mailto:contacto@jmmartinez.co">
+              <i class="icon-social-media fa fa-envelope-o" aria-hidden="true"></i>
+              contacto@jmmartinez.co
+            </a>
+          </div>
+    
+          <div class="ctn-social-media">
+            <a aria-label="Ir a facebook" href="https://facebook.com/" target="_blank">
+              <i class="icon-social-media fa fa-facebook" aria-hidden="true"></i>
+            </a>
 
-    <h1>
-      Landing Page
-    </h1>
+            <a aria-label="Ir a twitter" href="https://x.com/" target="_blank">
+              <i class="icon-social-media fa fa-twitter" aria-hidden="true"></i>
+            </a>
+
+            <a aria-label="Ir a google plus" href="https://google-plus.com/" target="_blank">
+              <i class="icon-social-media fa fa-google-plus" aria-hidden="true"></i>
+            </a>
+
+            <a aria-label="Ir a YouTube" href="https://youtube.com/" target="_blank">
+              <i class="icon-social-media fa fa-youtube-play" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </header>
+  
+      <nav class="menu" role="navigation">
+        <div class="ctn-logo">
+          <img src="images/logo.png" loading="lazy" alt="Logo" title="Logo">
+        </div>
+
+        <label class="menu-icon">
+          <input id="hamburguer-checkbox" type="checkbox">
+          <i class="hamburguer-icon fa fa-bars"></i>
+          <i class="close-icon fa fa-times-circle"></i>
+        </label>
+  
+        <ul class="menu-items">
+          <li><a class="active" href="#banner">Inico</a></li>
+          <li><a href="#products">Productos</a></li>
+          <li><a href="#living-room">Espacios</a></li>
+          <li><a href="#us">Nosotros</a></li>
+          <li><a href="#find-us">Encuéntranos</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+    </section>
 
   </body>
 </html>
