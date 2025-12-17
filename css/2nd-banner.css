@@ -1,0 +1,91 @@
+.second-banner {
+  background: color-mix(in srgb, black 50%, transparent 50%) url('../images/fondo.png') center / cover no-repeat;
+  background-blend-mode: multiply;
+  color: white;
+  min-height: 60vh;
+  position: relative;
+}
+
+.second-banner .text-2b {
+  bottom: 12%;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  left: 12%;
+  position: absolute;
+  text-shadow: 0 0 8px black;
+
+  & h2:first-of-type {
+    font-weight: normal;
+  }
+}
+
+.btn-show {
+  align-items: center;
+  background-color: transparent;
+  border-style: none;
+  color: white;
+  display: flex;
+  font-size: clamp(1.2rem, calc(5vw - 1px), 1.5rem);
+  font-weight: 700;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  text-shadow: 0 0 8px black;
+
+  & i {
+    color: var(--color-green);
+    font-size: clamp(2.2rem, calc(5vw - 1px), 2.5rem);
+    font-weight: 500;
+  }
+}
+
+body:has(#my-dialog:popover-open) {
+  overflow-y: hidden;
+}
+
+#my-dialog {
+  background-color: transparent;
+  border-style: none;
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+	position: fixed;
+	overflow: visible;
+  text-align: center;
+	opacity: 0;
+	
+	&::backdrop {
+		background-color: transparent;
+		backdrop-filter: none;
+		cursor: pointer;
+	}
+	
+	&:popover-open {
+		opacity: 1;
+		
+		&::backdrop {
+			background-color: color-mix(in srgb, var(--color-black) 50%, transparent 50%);
+			backdrop-filter: blur(10px);
+		}
+	}
+
+  & iframe {
+    aspect-ratio: 16 / 9;
+    border-style: none;
+    object-fit: contain;
+    width: 90%;
+  }
+
+}
+
+@media (max-width: 1919px) {
+  .second-banner {
+    background-size: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  .second-banner {
+    background-position: center;
+    height: auto;
+    padding: 3rem 1rem;
+  }
+}
