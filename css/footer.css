@@ -1,0 +1,11 @@
+.footer {
+  align-content: center;
+  background-color: var(--color-blue-alt);
+  text-align: center;
+  
+  & img {
+    transform: translateY(-50%);
+    width: 17.5rem;
+    max-width: 85%;
+  }
+}
