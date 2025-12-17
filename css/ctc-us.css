@@ -1,0 +1,124 @@
+.ctn-contact-us {
+  align-items: center;
+  color: var(--color-white);
+  display: flex;
+  font-size: clamp(0.5rem, 1.25rem, 2rem);
+  height: 32rem;
+  transform: translateY(-10%);
+
+  & h1 {
+    font-weight: 500;
+    letter-spacing: 2px;
+  }
+
+  & p {
+    font-weight: 100;
+    margin-block: 2.25rem;
+  }
+}
+
+.about-us {
+  background-color: var(--color-green);
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+  justify-content: center;
+  padding: 5rem 7.5rem;
+  width: 50%;
+
+  & button {
+    background-color: var(--color-white);
+    border-radius: 0.25rem;
+    border-style: none;
+    color: var(--color-green);
+    font-size: clamp(0.5rem, 1.25rem, 2rem);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    width: fit-content;
+  }
+}
+
+.subscription {
+  background-color: color-mix(in srgb,var(--color-blue) 82%,#8fe3ff 18%);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 5rem 7.5rem;
+  width: 50%;
+
+  & form {
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0 1px var(--color-white);
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 5px 5px 1.25rem;
+    width: 90%;
+
+    &:has(input:focus) {
+      box-shadow: 0 0 0 2px white;
+    }
+
+    &:has(input:user-invalid) {
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-error) 90%, var(--color-black) 10%);
+    }
+
+    &:has(input:user-valid) {
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-green) 90%, var(--color-black) 10%);
+    }
+
+    & input {
+      background-color: transparent;
+      border-radius: 0.25rem;
+      border-style: none;
+      color: white;
+      font-size: 1.25rem;
+      width: 100%;
+
+      &:user-invalid {
+        color: color-mix(in srgb, var(--color-error) 30%, red 70%);
+        font-weight: 600;
+      }
+
+      &:user-valid {
+        color: color-mix(in srgb, var(--color-green) 90%, var(--color-black) 10%);
+        font-weight: 600;
+      }
+    }
+  
+    & input::placeholder {
+      color: var(--color-white);
+    }
+  
+    & button {
+      background-color: var(--color-white);
+      border-radius: 0.25rem;
+      border-style: none;
+      color: color-mix(in srgb,var(--color-blue) 75%,var(--color-white) 25%);
+      font-size: clamp(0.5rem, 1rem, 2rem);
+      font-weight: 600;
+      padding: 0.75rem 2.5rem;
+    }
+  }
+}
+
+@media (max-width: 1350px) {
+  .ctn-contact-us {
+    flex-direction: column;
+    height: auto;
+    transform: translateY(0);
+    width: 100%;
+    
+    & :is(.about-us, .subscription) {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .ctn-contact-us {    
+    & :is(.about-us, .subscription) {
+      padding: 3rem 1rem;
+    }
+  }
+}
