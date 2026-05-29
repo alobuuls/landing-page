@@ -71,8 +71,9 @@
 
   & a {
     color: white;
-    text-shadow: 0 0 1px black;
+    display: block;
     position: relative;
+    text-shadow: 0 0 1px black;
     text-transform: uppercase;
 
     &:before {
@@ -169,14 +170,23 @@
   }
 
   .menu {
-    background-color: color-mix(in srgb, var(--color-blue) 60%, transparent 40%);
     backdrop-filter: blur(10px);
+    background-color: color-mix(in srgb, var(--color-blue) 60%, transparent 40%);
+    cursor: pointer;
     padding-block: 1rem;
-    position: fixed;
+    visibility: visible;
+    z-index: 3;
+    position: sticky;
     top: 0;
     left: 0;
+    transition: translate 0.5s ease,
+                visibility 0.5s ease;
     width: 100%;
-    z-index: 3;
+    
+    &.scroll-down {
+      translate: 0 -100%;
+      visibility: hidden;
+    }
   }
 
   .menu-items > li {
