@@ -1,6 +1,6 @@
 .banner {
   align-items: center;
-  background: color-mix(in srgb, black 50%, transparent 50%) url('../images/banner-principal.jpg') no-repeat center 17% / cover;
+  background: color-mix(in srgb, black 50%, transparent 50%) url('../images/banner-principal.webp') no-repeat center 17% / cover;
   background-blend-mode: multiply;
   display: flex;
   flex-direction: column;

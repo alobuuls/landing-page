@@ -1,5 +1,5 @@
 .second-banner {
-  background: color-mix(in srgb, black 50%, transparent 50%) url('../images/fondo.png') center / cover no-repeat;
+  background: color-mix(in srgb, black 50%, transparent 50%) url('../images/fondo.webp') center / cover no-repeat;
   background-blend-mode: multiply;
   color: white;
   min-height: 60vh;
@@ -34,6 +34,13 @@
     color: var(--color-green);
     font-size: clamp(2.2rem, calc(5vw - 1px), 2.5rem);
     font-weight: 500;
+    transition: color 0.5s ease-in-out,
+                scale 0.5s ease-in-out;
+  }
+  
+  &:hover > i {
+    color: white;
+    scale: 1.1;
   }
 }
 
