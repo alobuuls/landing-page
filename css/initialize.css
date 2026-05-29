@@ -8,6 +8,7 @@
   color-scheme: light dark;
 
   /* Superficies / texto */
+  --color-light: light-dark(#ffffff, #000000);
   --color-white: light-dark(#fafafa, #252525);
   --color-black: light-dark(#000000, #f5f5f5);
   --color-gray: light-dark(#8b8b8b, #d7d7d7);
@@ -58,5 +59,96 @@ img {
 
   &:focus {
     outline: 0;
+  }
+}
+
+:is(body, .header, .products, .ctc-us2, .articles article, .bg-text) {
+  transition: background-color 0.4s ease;
+}
+
+:has(#dark-mode-checkbox:checked) {
+  --color-light: #000000;
+  --color-white: #252525;
+  --color-black: #f5f5f5;
+  --color-gray: #d7d7d7;
+  --color-green: #a6d63a;
+  --color-blue: #4bb3e6;
+  --color-blue-alt: color-mix(in srgb, var(--color-blue) 50%, #03042d 50%);
+  --color-green-bg-txt: color-mix(in srgb, var(--color-green) 25%, transparent 75%);
+  --color-blue-bg-txt: color-mix(in srgb, var(--color-blue) 25%, transparent 75%);
+  --bg-cards: color-mix(in srgb,var(--color-blue) 20%,#174250 80%);
+}
+
+#dark-mode {
+  align-content: center;
+  background-color: black;
+  border-radius: 0.5rem;
+  bottom: 3rem;
+  box-shadow: 0 0 0 2px white;
+  cursor: pointer;
+  display: block;
+  height: 4rem;
+  position: fixed;
+  right: 1.5rem;
+  text-align: center;
+  transform: translateY(50%);
+  width: 4rem;
+  z-index: 1;
+
+  &:hover > .icon-dark-mode {
+    transform: rotateY(1turn) rotateZ(0.75turn);
+  }
+}
+
+.icon-dark-mode {
+  color: #8a53ff;
+  font-size: 2rem;
+  text-shadow: 0 0 2px #8a53ff;
+  transition: transform 0.4s ease-in;
+}
+
+#dark-mode-checkbox {
+  display: none;
+
+  &:checked + #dark-mode .icon-dark-mode {
+    color: #e7e71d;
+    text-shadow: 0 0 2px #e7e71d;
+    
+    &:before {
+      content: '\f185';
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :has(#dark-mode-checkbox:checked) {
+    --bg-cards: color-mix(in srgb,var(--color-blue) 82%,#8fe3ff 18%);
+    --color-light: #ffffff;
+    --color-white: #fafafa;
+    --color-black: #000000;
+    --color-gray: #8b8b8b;
+    --color-green: #94c11e;
+    --color-blue: #2b98d3;
+    --color-blue-alt: color-mix(in srgb, var(--color-blue) 82%, #000264 18%);
+    --color-green-bg-txt: color-mix(in srgb, var(--color-green) 10%, transparent 90%);
+    --color-blue-bg-txt: color-mix(in srgb, var(--color-blue) 10%, transparent 90%);
+  }
+
+  .icon-dark-mode {
+    color: #e7e71d;
+    text-shadow: 0 0 2px #e7e71d;
+
+    &:before {
+      content: '\f185';
+    }
+  }
+
+  #dark-mode-checkbox:checked + #dark-mode .icon-dark-mode {
+    color: #8a53ff;
+    text-shadow: 0 0 2px #8a53ff;
+
+    &:before {
+      content: '\f186';
+    }
   }
 }
